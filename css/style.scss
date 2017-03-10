@@ -7,19 +7,21 @@
 
 body{
   width: 100%;
+  min-width: 540px;
   padding-top: 100px;
   padding-bottom: 90px;
   color: $primary-color--info;
   font-family: $font-main;
   font-size: 14px;
 }
-
+//хэдер
 .ba-header{
   text-align: center;
   width:455px;
   position: relative;
   margin: 0 auto 48px;
   padding-bottom: 46px;
+  //линия под хэдером
   &:before{
     display: block;
     content: "";
@@ -29,6 +31,7 @@ body{
     height: 1px;
     bottom: 0;
   }
+  //линия под хэдером
   &:after{
     @extend .ba-header:before;
     right: 0;
@@ -60,24 +63,24 @@ body{
 
 .ba-main{
   max-width: 1170px;
+  min-width: 420px;
   margin: 0 auto;
   position: relative;
 }
-
+//контейнер для элементов портфолио
 .ba-box{
-  max-width: 1005px;
-  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-
+//секции флекса
 .ba-column{
   padding: 75px 0 67px;
   flex-grow: 1;
   flex-shrink: 1;
   height: 560px;
   max-width: 420px;
+  //разделительная линия по середине
   &--delimiter{
     padding-left: 82px;
     padding-right: 82px;
@@ -90,6 +93,7 @@ body{
 }
 
 .ba-photo{
+  margin-left: 20px; /*отступ от правого края, чтобы не наезжала стрелка*/
   &__bg-img{
     background: url("../assets/frame_orange.svg") 50% no-repeat;
     padding: 15px;
@@ -100,8 +104,9 @@ body{
     }
   }
 }
-
+//секция с информацией
 .ba-info{
+  margin-right: 20px;
   text-align: center;
   &__title{
     margin: 0;
@@ -156,11 +161,13 @@ body{
       }
     }
   }
+  //параграф в информационной части
   &__description{
     color: #333333;
     font-weight: 500;
     line-height: 24px;
   }
+  // ссылка на профиль
   &__view-profile{
     margin: 0 auto;
     display: block;
@@ -179,26 +186,28 @@ body{
   }
 
 }
-
+//навигация документа
 .ba-nav{
+  //стрелки
   &__arrow {
     width: 13px;
     height: 23px;
     position: absolute;
     top: 270px;
-    padding: 10px;
     &:hover {
       transform: scale(1.4);
     }
     &-left {
       background: url("../assets/angle-left-icon.png") no-repeat;
-      left: 0;
+      left: 2%;
     }
     &-right {
       background: url("../assets/angle-right-icon.png") no-repeat;
-      right: 0;
+      right: 2%;
     }
   }
+
+  //навигация
   &__items{
     margin-top: 40px;
 
@@ -228,8 +237,8 @@ body{
   }
 }
 
-
-@media all and (max-width: 1020px) {
+//убираем отступы в секции по середине, чтобы контент визуально сжимался
+@media all and (max-width: 1060px) {
 
   .ba-column--delimiter{
     padding-right: 65px;
@@ -237,7 +246,7 @@ body{
   }
 }
 
-@media all and (max-width: 987px) {
+@media all and (max-width: 1030px) {
 
   .ba-column--delimiter{
     padding-right: 40px;
@@ -245,7 +254,16 @@ body{
   }
 }
 
-@media all and (max-width: 941px) {
+@media all and (max-width: 973px) {
+
+  .ba-column--delimiter{
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+// скрываем блок по середине полностью
+@media all and (max-width: 920px) {
 
   .ba-column--delimiter{
     display: none;
